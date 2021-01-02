@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int r, c, k;
@@ -18,7 +20,7 @@ main() {
     for(int y = 0; y < r; y++){
         for(int x = 0; x < c; x++){
             if(y != 0){
-                dp[y][x][0] = max(max(dp[y - 1][x][0], dp[y - 1][x][1]), max(dp[y - 1][x][2], dp[y - 1][x][3]));
+                dp[y][x][0] = *max_element(dp[y - 1][x], dp[y - 1][x] + 4);
                 dp[y][x][1] = dp[y][x][0] + items[y][x];
             }
 
@@ -35,5 +37,5 @@ main() {
         }
     }
 
-    cout << max(max(dp[r - 1][c - 1][0], dp[r - 1][c - 1][1]), max(dp[r - 1][c - 1][2], dp[r - 1][c - 1][3])) << endl;
+    cout << *max_element(dp[r - 1][c - 1], dp[r - 1][c - 1] + 4) << endl;
 }
