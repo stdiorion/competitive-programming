@@ -5,7 +5,7 @@
 
 ## filegen.pyの使い方
 
-あらかじめコンテストサイトごとにcontests_atcoderのようなディレクトリを作っておく
+あらかじめコンテストサイトごとにcontests_atcoderのようなディレクトリを作っておく。
 
 filegen.pyを実行すると、
 
@@ -13,16 +13,18 @@ filegen.pyを実行すると、
 Type the contest holder name:
 ```
 
-と言われるのでコンテストサイトの名前を入力（空白だとatcoderが勝手に入る）そしたら
+と言われるのでコンテストサイトの名前を入力する（空にするとatcoderが入る）。
 
 ```
 Type the contest name:
 ```
 
-と言われるのでコンテスト名（abc999とか）を入力
+と言われるのでコンテスト名（ex. abc999）を入力する。
 
 ```
 Sure? [ abc999 ] (y/n)
 ```
 
-確認されるのでyを入力してエンターする。するとcontests_xx下にabc999フォルダが作成され、その中にabc999_a.pyからabc999_f.pyまで作成される。ファイルの中身はcontest_xxフォルダ直下のtemplate.pyがそのまま入る。あと勝手にVSCodeで開いてくれる。
+確認されるのでyを入力して`Enter`。
+
+`contests_xx\abc999\`フォルダがなければ作成され、その中に`abc999_a.py`～`abc999_f.py`が作成される。ファイルの中身は`contest_xx\template.py`があらかじめ入れられる。おまけにVSCodeで開いてくれる。
