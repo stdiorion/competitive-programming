@@ -6,7 +6,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # どこのコンテストか入力
 print("Type the contest holder name: ", end="")
-contest_holder = input()
+contest_holder: str = input()
 
 # 空だったらAtCoderにする
 if contest_holder == "":
@@ -22,7 +22,7 @@ else:
 # コンテスト名を入力
 print(f"[ {contest_holder} ]")
 print("Type the contest name: ", end="")
-contest_name = input()
+contest_name: str = input()
 
 # 問題番号はとりあえずA～F
 problems = [chr(97 + i) for i in range(6)]
