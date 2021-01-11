@@ -8,13 +8,10 @@ MOD = 10 ** 9 + 7
 INF = float("inf")
 
 n = int(input())
-a = map(int, input().split())
+A = list(map(int, input().split()))
+a = A[:]
 
-sum_a_inv = 0
+for i in range(n - 1, 0, -1):
+    a = [max(a[2*i], a[2*i+1]) for i in range(2 ** i)]
 
-for ai in a:
-    sum_a_inv += 1 / ai
-
-ans = 1 / sum_a_inv
-
-print(ans)
+print(A.index(min(a)) + 1)

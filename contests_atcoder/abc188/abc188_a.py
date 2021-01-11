@@ -7,14 +7,9 @@ input = lambda: sys.stdin.readline().rstrip()
 MOD = 10 ** 9 + 7
 INF = float("inf")
 
-n = int(input())
-a = map(int, input().split())
+x, y = map(int, input().split())
 
-sum_a_inv = 0
-
-for ai in a:
-    sum_a_inv += 1 / ai
-
-ans = 1 / sum_a_inv
-
-print(ans)
+if abs(x - y) < 3:
+    print("Yes")
+else:
+    print("No")

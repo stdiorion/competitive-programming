@@ -7,14 +7,3 @@ input = lambda: sys.stdin.readline().rstrip()
 MOD = 10 ** 9 + 7
 INF = float("inf")
 
-n = int(input())
-a = map(int, input().split())
-
-sum_a_inv = 0
-
-for ai in a:
-    sum_a_inv += 1 / ai
-
-ans = 1 / sum_a_inv
-
-print(ans)

@@ -8,13 +8,16 @@ MOD = 10 ** 9 + 7
 INF = float("inf")
 
 n = int(input())
-a = map(int, input().split())
 
-sum_a_inv = 0
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
 
-for ai in a:
-    sum_a_inv += 1 / ai
+dot = 0
 
-ans = 1 / sum_a_inv
+for i in range(n):
+    dot += a[i] * b[i]
 
-print(ans)
+if dot == 0:
+    print("Yes")
+else:
+    print("No")
