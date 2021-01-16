@@ -15,4 +15,4 @@ elif len(count_e) == 1:
 elif len(count_o) == 1:
     print(n // 2 - count_e[1][1])
 else:
-    print(n - min(count_e[0][1] + count_o[1][1], count_e[1][1] + count_o[0][1]))
+    print(n - max(count_e[0][1] + count_o[1][1], count_e[1][1] + count_o[0][1]))
