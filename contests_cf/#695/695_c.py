@@ -1,0 +1,5 @@
+n1, n2, n3 = map(int, input().split())
+a1 = list(map(int, input().split()))
+a2 = list(map(int, input().split()))
+a3 = list(map(int, input().split()))
+print(sum(a1 + a2 + a3) - 2 * min(min(sum(a1), sum(a2), sum(a3)), sum(sorted([min(a) for a in [a1, a2, a3]])[0:2])))

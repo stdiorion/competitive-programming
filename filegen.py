@@ -58,3 +58,7 @@ for file in files:
 for file in files:
     print(f"Opening {file}")
     subprocess.run(["code", file], shell=True)
+
+for file in files[::-1]:
+    print(f"Opening {file}")
+    subprocess.run(["code", file], shell=True)

@@ -1,83 +1,45 @@
-from itertools import combinations
-import math
+from collections import defaultdict
+from fractions import Fraction
+import sys
+input = sys.stdin.buffer.readline
 MOD = 10 ** 9 + 7
  
-N = int(input())
-sardines_pos = []
-sardines_neg = []
-sardines_zero = 0
+n = int(input())
+
+dic = defaultdict(lambda: [0, 0])
+zero = 0
 a_zero = 0
 b_zero = 0
-discord = []
- 
-for i in range(N):
+
+for _ in range(n):
     a, b = map(int, input().split())
- 
-    if a == 0 and b == 0:
-        sardines_zero += 1
+
+    if a == b == 0:
+        zero += 1
     elif a == 0:
         a_zero += 1
     elif b == 0:
         b_zero += 1
     else:
-        c = a / b
- 
-        if c > 0:
-            sardines_pos.append((c, a, b))
+        if a * b > 0:
+            key = Fraction(a, b)
+            dic[key][0] += 1
         else:
-            sardines_neg.append((c, a, b))
- 
- 
-sardines_pos.sort()
-sardines_neg.sort()
- 
-i_pos = 0
-i_neg = 0
- 
-while i_pos < len(sardines_pos) and i_neg < len(sardines_neg):
-    if sardines_pos[i_pos][2] * sardines_neg[i_neg][2] + sardines_pos[i_pos][1] * sardines_neg[i_neg][1] > 0:
-        i_neg += 1
-    elif sardines_pos[i_pos][2] * sardines_neg[i_neg][2] + sardines_pos[i_pos][1] * sardines_neg[i_neg][1] < 0:
-        i_pos += 1
-    else:
-        cnt_pos = 0
-        cnt_neg = 0
-        for i in range(i_pos, len(sardines_pos)):
-            if sardines_pos[i][0] == sardines_pos[i_pos][0]:
-                cnt_pos += 1
-            else:
-                break
-        for i in range(i_neg, len(sardines_neg)):
-            if sardines_neg[i][0] == sardines_neg[i_neg][0]:
-                cnt_neg += 1
-            else:
-                break
-        discord.append([cnt_pos, cnt_neg])
-        i_pos += cnt_pos
-        i_neg += cnt_neg
- 
-def choice(n):
-    return(2 ** n - 1)
- 
-ans = choice(N)
- 
-if sardines_zero > 0:
-    discord.append([sardines_zero])
-    ans += sardines_zero % MOD
- 
-if a_zero > 0 and b_zero > 0:
-    discord.append([a_zero, b_zero])
- 
-if len(discord):
-    for i in range(1, len(discord) + 1):
-        for ds in combinations(discord, i):
-            ds = sum(ds, [])
-            ds_sum = 0
-            ds_prod = 1
-            for d in ds:
-                ds_sum += d
-                ds_prod *= choice(d) % MOD
-            ans += ds_prod * ((choice(N - ds_sum) + 1) % MOD) * (-1) ** i % MOD
- 
- 
-print(ans % MOD)
+            key = Fraction(-b, a)
+            dic[key][1] += 1
+
+# 仲の悪いペアからどちらかのグループを選んでそこから取り出す場合の数をかけていく
+ans = pow(2, a_zero, MOD) + pow(2, b_zero, MOD) - 1
+
+for (n1, n2) in dic.values():
+    ans *= pow(2, n1, MOD) + pow(2, n2, MOD) - 1
+    ans %= MOD
+
+# クーラーボックスが空の場合
+ans -= 1
+
+# 孤立するやつ
+ans += zero
+ans %= MOD
+
+print(ans)
