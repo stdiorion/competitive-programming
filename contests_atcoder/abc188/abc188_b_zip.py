@@ -1,0 +1,1 @@
+input();print("No"if sum(x*y for x,y in zip(map(int,input().split()),map(int,input().split())))else "Yes")
