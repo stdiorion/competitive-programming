@@ -20,10 +20,21 @@ using vecvec = vector<vec>;
 constexpr ll INF = 1'010'000'000'000'000'017LL;
 constexpr ll MOD = 1'000'000'007LL;
 
-
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    
-    $1
+
+    ll n;
+    cin >> n;
+    ll a[n];
+    rep(i, n) cin >> a[i];
+    sort(a, a + n);
+    rep(i, n - 1) {
+        if (a[i] == a[i + 1]) {
+            cout << "NO" << endl;
+            return 0;
+        }
+    }
+    cout << "YES" << endl;
+    return 0;
 }

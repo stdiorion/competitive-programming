@@ -21,9 +21,20 @@ constexpr ll INF = 1'010'000'000'000'000'017LL;
 constexpr ll MOD = 1'000'000'007LL;
 
 
+string s, t;
+ll a, b;
+string u;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+
+    cin >> s >> t >> a >> b >> u;
     
-    $1
+    if (s == u) {
+        cout << a - 1 << " " << b << endl;
+    }
+    else {
+        cout << a << " " << b - 1 << endl;
+    }
 }

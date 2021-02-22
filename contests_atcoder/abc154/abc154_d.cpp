@@ -24,6 +24,23 @@ constexpr ll MOD = 1'000'000'007LL;
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+
+    ll n, k;
+    cin >> n >> k;
+    ll p[n];
+    rep(i, n) cin >> p[i];
+    rep(i, n) p[i]++;
+
+    ll sp[n + 1];
+    sp[0] = 0;
+    rep(i, n) sp[i + 1] = sp[i] + p[i];
     
-    $1
+    ll ans = 0;
+    
+    rep(i, n - k + 1) {
+        ans = max(ans, sp[i + k] - sp[i]);
+    }
+
+    cout << (long double)ans / 2 << endl;
+    
 }

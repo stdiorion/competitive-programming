@@ -1,0 +1,1 @@
+print(*([k:=2e9,k/2]+list(range(2,int(input())+1))+[k]))

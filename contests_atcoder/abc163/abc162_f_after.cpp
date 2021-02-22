@@ -17,13 +17,34 @@ using vecvec = vector<vec>;
 #define MAX(v) *max_element(all(v))
 #define MIN(v) *min_element(all(v))
 #define append push_back
-constexpr ll INF = 1'010'000'000'000'000'017LL;
-constexpr ll MOD = 1'000'000'007LL;
+constexpr ll INF = 10100000000000017LL;
+constexpr ll MOD = 1000000007LL;
 
-
+ll n;
+vec a(200000, 0);
+ll dp[200000][3];
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+
+    cin >> n;
+    rep(i, n) cin >> a[i];
     
-    $1
+    rep(i, n)
+        rep(j, 3)
+            dp[i][j] = (i == j) ? a[i] : -INF;
+    
+    rep(i, n) {
+        dp[i + 2][0] = max(dp[i + 2][0], dp[i][0] + a[i + 2]);
+        dp[i + 2][1] = max(dp[i + 2][1], dp[i][1] + a[i + 2]);
+        dp[i + 2][2] = max(dp[i + 2][2], dp[i][2] + a[i + 2]);
+        dp[i + 3][1] = max(dp[i + 3][1], dp[i][0] + a[i + 3]);
+        dp[i + 3][2] = max(dp[i + 3][2], dp[i][1] + a[i + 3]);
+        dp[i + 4][2] = max(dp[i + 4][2], dp[i][0] + a[i + 4]);
+    }
+    
+    ll ans = max({ dp[n - 1][2], dp[n - 2][1], dp[n - 1][1], dp[n - 2][0] });
+    if (n - 3 >= 0)
+        ans = max(ans, dp[n - 3][0]);
+    cout << ans << endl;
 }

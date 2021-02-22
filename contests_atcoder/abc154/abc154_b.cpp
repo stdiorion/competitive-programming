@@ -20,10 +20,16 @@ using vecvec = vector<vec>;
 constexpr ll INF = 1'010'000'000'000'000'017LL;
 constexpr ll MOD = 1'000'000'007LL;
 
+string s;
 
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+
+    cin >> s;
     
-    $1
+    rep(len(s)) {
+        cout << "x";
+    }
+    cout << endl;
 }

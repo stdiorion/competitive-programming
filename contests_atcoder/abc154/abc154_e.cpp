@@ -24,6 +24,19 @@ constexpr ll MOD = 1'000'000'007LL;
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    
-    $1
+
+    string n;
+    cin >> n;
+    int k;
+    cin >> k;
+    ll ans = 0;
+
+    if (k == 1) {
+        ans += atoi(n[0]);
+        ans += (ll)n.size() - 1;
+    }
+    else if (k == 2) {
+        ans = 0;
+    }
+    cout << ans << endl;
 }

@@ -21,9 +21,21 @@ constexpr ll INF = 1'010'000'000'000'000'017LL;
 constexpr ll MOD = 1'000'000'007LL;
 
 
+ll v, d, digits;
+ll e[2000][2000], ans[2000][2000];
+ll edges[2000];
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+
+    cin >> v >> d;
+    rep(i, v) cin >> edges[i];
+
+    while (d) {
+        if (d & 1) {
+            ans = 
+        }
+    }
     
-    $1
 }

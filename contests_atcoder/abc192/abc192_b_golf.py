@@ -1,0 +1,1 @@
+print("YNeos"[any((c<"a")^i%2for i,c in enumerate(input()))::2])

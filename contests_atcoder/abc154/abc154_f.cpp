@@ -24,6 +24,6 @@ constexpr ll MOD = 1'000'000'007LL;
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+
     
-    $1
 }
