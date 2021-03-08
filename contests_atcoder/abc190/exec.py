@@ -1,0 +1,1 @@
+exec(('for i in range(5):\n print("Hello")'.replace("l", "k")))

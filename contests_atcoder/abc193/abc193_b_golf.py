@@ -1,0 +1,1 @@
+print(min([p for a,p,x in[map(int,input().split())for _ in[0]*int(input())]if a<x]or[-1]))
